@@ -1,0 +1,15 @@
+D:\Visual Studio\OOPSEVEN\OOPSeven\bin\Debug\net7.0\OOPSeven.exe
+D:\Visual Studio\OOPSEVEN\OOPSeven\bin\Debug\net7.0\OOPSeven.deps.json
+D:\Visual Studio\OOPSEVEN\OOPSeven\bin\Debug\net7.0\OOPSeven.runtimeconfig.json
+D:\Visual Studio\OOPSEVEN\OOPSeven\bin\Debug\net7.0\OOPSeven.dll
+D:\Visual Studio\OOPSEVEN\OOPSeven\bin\Debug\net7.0\OOPSeven.pdb
+D:\Visual Studio\OOPSEVEN\OOPSeven\obj\Debug\net7.0\OOPSeven.csproj.AssemblyReference.cache
+D:\Visual Studio\OOPSEVEN\OOPSeven\obj\Debug\net7.0\OOPSeven.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Studio\OOPSEVEN\OOPSeven\obj\Debug\net7.0\OOPSeven.AssemblyInfoInputs.cache
+D:\Visual Studio\OOPSEVEN\OOPSeven\obj\Debug\net7.0\OOPSeven.AssemblyInfo.cs
+D:\Visual Studio\OOPSEVEN\OOPSeven\obj\Debug\net7.0\OOPSeven.csproj.CoreCompileInputs.cache
+D:\Visual Studio\OOPSEVEN\OOPSeven\obj\Debug\net7.0\OOPSeven.dll
+D:\Visual Studio\OOPSEVEN\OOPSeven\obj\Debug\net7.0\refint\OOPSeven.dll
+D:\Visual Studio\OOPSEVEN\OOPSeven\obj\Debug\net7.0\OOPSeven.pdb
+D:\Visual Studio\OOPSEVEN\OOPSeven\obj\Debug\net7.0\OOPSeven.genruntimeconfig.cache
+D:\Visual Studio\OOPSEVEN\OOPSeven\obj\Debug\net7.0\ref\OOPSeven.dll

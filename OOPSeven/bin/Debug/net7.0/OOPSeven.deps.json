@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "OOPSeven/1.0.0": {
+        "runtime": {
+          "OOPSeven.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OOPSeven/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
