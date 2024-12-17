@@ -13,36 +13,39 @@ namespace OOPSeven
     class DataTrain
     {
         Random random = new Random();
-        WayTrain wayTrain = new WayTrain();
 
         private int carriageHowManyPlace;
         private int carriageHowMany;
-
-        public int CarriageHowMany { get { return carriageHowMany; } set { carriageHowMany = value; } }
-        public int CarriageHowManyPlace { get { return carriageHowManyPlace; } set { carriageHowManyPlace = value; } }
-
-        public void AddCarriage()
-        {
-            CarriageHowManyPlace = random.Next(25, 50);
-            CarriageHowMany = wayTrain.People / CarriageHowManyPlace;
-        }
-    }
-
-    class WayTrain
-    {
-        Random random = new Random();
+        private int people;
+        private int priceTicket;
+        private int sum;
+        private int distance;
 
         private string cityA;
         private string cityB;
 
-        private int people;
-        private int distance;
-
         public string CityA { get { return cityA; } set { cityA = value; } }
         public string CityB { get { return cityB; } set { cityB = value; } }
 
-        public int People { get { return people; } set { people = value; } }
         public int Distance { get { return distance; } set { distance = value; } }
+        public int CarriageHowMany { get { return carriageHowMany; } set { carriageHowMany = value; } }
+        public int CarriageHowManyPlace { get { return carriageHowManyPlace; } set { carriageHowManyPlace = value; } }
+        public int People { get { return people; } set { people = value; } }
+        public int PriceTicket { get { return priceTicket; } set { priceTicket = value; } }
+        public int Sum { get { return sum; } set { sum = value; } }
+
+        public void AddCarriage()
+        {
+            People = random.Next(200, 300);
+            CarriageHowManyPlace = random.Next(25, 50);
+            CarriageHowMany = People / CarriageHowManyPlace;
+        }
+
+        public void AddTicketPrice()
+        {
+            PriceTicket = random.Next(500, 5000);
+            Sum = People * PriceTicket;
+        }
 
         public void WayCreate()
         {
@@ -53,45 +56,20 @@ namespace OOPSeven
 
             Distance = random.Next(100, 2000);
         }
-
-        public void AddPeople()
-        {
-            People = random.Next(200, 300);
-        }
-    }
-
-    class AppointPrice
-    {
-        WayTrain wayTrain = new WayTrain();
-        Random random = new Random();
-
-        private int priceTicket;
-        private int sum;
-
-        public int PriceTicket { get { return priceTicket; } set { priceTicket = value; } }
-        public int Sum { get { return sum; } set { sum = value; } }
-
-        public void AddTicketPrice()
-        {
-            PriceTicket = random.Next(500, 5000);
-            Sum = wayTrain.People * PriceTicket;
-        }
     }
 
     class Train
     {
-        DataTrain dataTrain = new DataTrain();
-        WayTrain wayTrain = new WayTrain();
-        AppointPrice appointPrice = new AppointPrice();
-        Dictionary<WayTrain, DataTrain> trainList = new Dictionary<WayTrain, DataTrain>();
+        DataTrain dataTrain = new DataTrain(); 
+        List<DataTrain> trainList = new List<DataTrain>();
         public void DisplayTrain()
         {
-            foreach (KeyValuePair<WayTrain, DataTrain> valueTrain in trainList)
+            foreach (DataTrain valueTrain in trainList)
             {
-                Console.WriteLine($"Город отправления: {valueTrain.Key.CityA} - Город прибытия: {valueTrain.Key.CityB}. \n" +
-                    $"Дистанция между городами: {valueTrain.Key.Distance}км. Цена на билет: {appointPrice.PriceTicket}руб. \n" +
-                    $"Людей купившие билет: {valueTrain.Key.People}. Поезда принесла денег: {appointPrice.Sum}руб. \n" +
-                    $"Количество вагонов задействованных в поезде {valueTrain.Value.CarriageHowMany}.");
+                Console.WriteLine($"Город отправления: {valueTrain.CityA} - Город прибытия: {valueTrain.CityB}. \n" +
+                    $"Дистанция между городами: {valueTrain.Distance}км. Цена на билет: {dataTrain.PriceTicket}руб. \n" +
+                    $"Людей купившие билет: {valueTrain.People}. Поезда принесла денег: {dataTrain.Sum}руб. \n" +
+                    $"Количество вагонов задействованных в поезде {valueTrain.CarriageHowMany}.");
                 Console.WriteLine();
             }
         }
@@ -99,15 +77,13 @@ namespace OOPSeven
         public void CreateTrain()
         {
             dataTrain.AddCarriage();
-            wayTrain.WayCreate();
-            wayTrain.AddPeople();
-            appointPrice.AddTicketPrice();
-            trainList.Add(wayTrain, dataTrain);
+            dataTrain.WayCreate();
+            dataTrain.AddTicketPrice();
+            trainList.Add(dataTrain);
 
-
-            Console.WriteLine($"Город отправления: {wayTrain.CityA} - Город прибытия: {wayTrain.CityB}. \n" +
-                $"Дистанция между городами: {wayTrain.Distance}км. Цена на билет: {appointPrice.PriceTicket}руб. \n" +
-                $"Людей купившие билет: {wayTrain.People}. Поезда принесла денег: {appointPrice.Sum}руб. \n" +
+            Console.WriteLine($"Город отправления: {dataTrain.CityA} - Город прибытия: {dataTrain.CityB}. \n" +
+                $"Дистанция между городами: {dataTrain.Distance}км. Цена на билет: {dataTrain.PriceTicket}руб. \n" +
+                $"Людей купившие билет: {dataTrain.People}. Поезда принесла денег: {dataTrain.Sum}руб. \n" +
                 $"Количество вагонов задействованных в поезде {dataTrain.CarriageHowMany}.");
         }
     }
@@ -122,11 +98,11 @@ namespace OOPSeven
             {
                 Console.WriteLine("Выберите команду. 1 - Вывести список. 2 - Добавить маршрут.");
                 int command = Convert.ToInt32(Console.ReadLine());
-                if (command == 1)
+                if (command == (int)ChoiceInput.DisplayList)
                 {
                     train.DisplayTrain();
                 }
-                else if (command == 2)
+                else if (command == (int)ChoiceInput.AddWay)
                 {
                     train.CreateTrain();
                 }
@@ -134,4 +110,10 @@ namespace OOPSeven
 
         }
     }
+}
+
+enum ChoiceInput
+{
+    DisplayList = 1,
+    AddWay
 }
